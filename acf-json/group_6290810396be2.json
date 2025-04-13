@@ -1,0 +1,86 @@
+{
+    "key": "group_6290810396be2",
+    "title": "Gutenberg block (About) - Новини",
+    "fields": [
+        {
+            "key": "field_62908103a0443",
+            "label": "Заголовок",
+            "name": "title",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br",
+            "acfe_textarea_code": 0
+        },
+        {
+            "key": "field_62908190e08ea",
+            "label": "Категорія публікацій для відображення",
+            "name": "kategorya_publkacj_dlya_vdobrazhennya",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": [
+                "category"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "radio",
+            "default_value": false,
+            "return_format": "object",
+            "allow_null": 0,
+            "layout": "vertical",
+            "save_terms": 0,
+            "load_terms": 0,
+            "choices": [],
+            "ui": 0,
+            "multiple": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "search_placeholder": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/about-9-news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1653637581
+}

@@ -1,0 +1,48 @@
+{
+    "key": "group_628de8eae8ac6",
+    "title": "Gutenberg block -  Кейси",
+    "fields": [
+        {
+            "key": "field_628de8eaf3d27",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Кейси для цього блоку налаштовуються у розділі <a href=\"\/wp-admin\/edit.php?post_type=cases\" target=\"_blank\"><b>Кейси<\/b><\/a>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cases-2-cases"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1653467455
+}

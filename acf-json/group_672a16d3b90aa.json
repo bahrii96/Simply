@@ -1,0 +1,50 @@
+{
+    "key": "group_672a16d3b90aa",
+    "title": "Gutenberg block (Article) - Selected plate",
+    "fields": [
+        {
+            "key": "field_672a16d3c00c1",
+            "label": "Контент",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Note: if you want to know why social media services are important, read <a href=\"#\">Social Media Customer Service – What Wonders It Casts.<\/a> Or <a  href=\"#\">The Importance of Social Media Customer Services.<\/a>",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/article-3-new-cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1730811842
+}
