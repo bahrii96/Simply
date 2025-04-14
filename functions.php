@@ -2427,7 +2427,16 @@ if (function_exists('acf_add_options_sub_page')) {
 		'redirect' => false
 	));
 }
-
+if (function_exists('acf_add_options_sub_page')) {
+	acf_add_options_sub_page(array(
+		'page_title' => 'Webinars Settings',
+		'menu_title' => 'Webinars Settings',
+		'menu_slug' => 'webinars-settings',
+		'parent_slug' => 'edit.php?post_type=webinars', // головне тут!
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}
 
 
 add_action('wp_ajax_whitepapers_ajax_filter', 'whitepapers_ajax_filter');

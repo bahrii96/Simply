@@ -155,11 +155,16 @@ function theme_allowed_block_types($allowed_blocks)
 		'acf/awards-3-awards',
 		'acf/awards-4-featured-media',
 		'acf/awards-5-join-reviews',
-		// whitepaper     
-		'acf/whitepaper-1-main',
-		'acf/whitepaper-2-about',
-		// whitepaper  
-		'acf/whitepapers-1-whitepapers',
+			// whitepaper     
+			'acf/whitepaper-1-main',
+			'acf/whitepaper-2-about',
+			// whitepaper  
+			'acf/whitepapers-1-whitepapers',
+			// webinar
+			'acf/webinar-1-main',
+			'acf/webinar-2-about',
+			// webinars
+			'acf/webinars-1-webinars',
 	);
 }
 add_filter('allowed_block_types', 'theme_allowed_block_types');
@@ -1368,6 +1373,58 @@ function o_register_block()
 		'description'       => __('Custom block for Gutenberg'),
 		'render_template'   => 'gutenberg/whitepapers/1-whitepapers.php',
 		'category'          => 'whitepapers',
+		//'icon'              => 'cover-image',
+		'mode'              => 'auto',
+		'example' => array(
+			'attributes' => array(
+				'mode' => 'preview',
+				'data' => ['is_example' => true],
+			),
+		)
+	]);
+
+
+
+	// webinar
+	acf_register_block_type([
+		'name'              => 'webinar-1-main',
+		'title'             => __('Верхня частина webinar'),
+		'description'       => __('Custom block for Gutenberg'),
+		'render_template'   => 'gutenberg/webinar/1-main.php',
+		'category'          => 'webinar',
+		//'icon'              => 'cover-image',
+		'mode'              => 'auto',
+		'example' => array(
+			'attributes' => array(
+				'mode' => 'preview',
+				'data' => ['is_example' => true],
+			),
+		)
+	]);
+
+	acf_register_block_type([
+		'name'              => 'webinar-2-about',
+		'title'             => __('Iнформація + форма webinar'),
+		'description'       => __('Custom block for Gutenberg'),
+		'render_template'   => 'gutenberg/webinar/2-about.php',
+		'category'          => 'webinar',
+		//'icon'              => 'cover-image',
+		'mode'              => 'auto',
+		'example' => array(
+			'attributes' => array(
+				'mode' => 'preview',
+				'data' => ['is_example' => true],
+			),
+		)
+	]);
+
+	// webinars
+	acf_register_block_type([
+		'name'              => 'webinars-1-webinars',
+		'title'             => __('Каталог webinars'),
+		'description'       => __('Custom block for Gutenberg'),
+		'render_template'   => 'gutenberg/webinars/1-webinars.php',
+		'category'          => 'webinars',
 		//'icon'              => 'cover-image',
 		'mode'              => 'auto',
 		'example' => array(

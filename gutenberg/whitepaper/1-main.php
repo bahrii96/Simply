@@ -7,7 +7,7 @@ $terms = get_the_terms(get_the_ID(), 'whitepapers_teg');
 
 
 if (get_field('is_example')) { ?>
-	<img src="<?php echo get_template_directory_uri(); ?>/gutenberg/case/preview/1.png">
+	<img src="<?php echo get_template_directory_uri(); ?>/gutenberg/whitepaper/preview/1.png">
 <?php } else { ?>
 
 	<section class="whitePaperFS">
