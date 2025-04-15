@@ -50,7 +50,13 @@ if (get_field('is_example')) { ?>
 			</div>
 		</div>
 	</section>
-
-
-
 <?php } ?>
+
+<script>
+	document.addEventListener('wpcf7mailsent', function(event) {
+		const formWrapper = event.target.closest('.form.join-our-team__form');
+		if (formWrapper) {
+			formWrapper.classList.add('success');
+		}
+	}, false);
+</script>

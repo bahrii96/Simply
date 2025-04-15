@@ -53,7 +53,3 @@ if (get_field('is_example')) { ?>
 
 <?php } ?>
 
-<script type="text/javascript">
-	var element = document.querySelector('.wrapper');
-	element.classList.add('blogPage');
-</script>

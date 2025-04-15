@@ -2411,10 +2411,13 @@ add_action('wp_head', function () {
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/libs.js" defer></script>
 	<script src="https://simply-back.redlab.site/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9" id="regenerator-runtime-js" defer></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/dev.js" defer></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/home.js" defer></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.js" defer></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/dev.js" defer></script>
-<?php
+	<script src="<?php echo get_template_directory_uri(); ?>/dist/script.js" defer></script>
+
+	<script src="<?php echo get_template_directory_uri(); ?>/dist/js/others.js" defer></script>
+	<?php
 });
 
 if (function_exists('acf_add_options_sub_page')) {
@@ -2422,6 +2425,16 @@ if (function_exists('acf_add_options_sub_page')) {
 		'page_title' => 'Whitepapers Settings',
 		'menu_title' => 'Whitepapers Settings',
 		'menu_slug' => 'whitepapers-settings',
+		'parent_slug' => 'edit.php?post_type=whitepapers', // головне тут!
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}
+if (function_exists('acf_add_options_sub_page')) {
+	acf_add_options_sub_page(array(
+		'page_title' => 'Whitepapers Users',
+		'menu_title' => 'Whitepapers Users',
+		'menu_slug' => 'whitepapers-users',
 		'parent_slug' => 'edit.php?post_type=whitepapers', // головне тут!
 		'capability' => 'edit_posts',
 		'redirect' => false
@@ -2499,3 +2512,35 @@ function whitepapers_ajax_filter()
 		'total_posts' => $total_posts
 	));
 }
+
+add_action('wp_ajax_data_fetch_whitepapers', 'data_fetch_whitepapers');
+add_action('wp_ajax_nopriv_data_fetch_whitepapers', 'data_fetch_whitepapers');
+
+function data_fetch_whitepapers()
+{
+	$search_word = esc_attr($_POST['keyword'] ?? '');
+
+	$args = array(
+		'post_type'      => 'whitepapers',
+		'posts_per_page' => 5,
+		's'              => $search_word,
+	);
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		while ($query->have_posts()) : $query->the_post(); ?>
+			<li>
+				<a href="<?php the_permalink(); ?>">
+					<?php echo preg_replace("~($search_word)~iu", "<b>$1</b>", get_the_title()); ?>
+				</a>
+			</li>
+<?php endwhile;
+	}
+
+	wp_reset_postdata();
+	exit();
+}
+
+// ===========
+

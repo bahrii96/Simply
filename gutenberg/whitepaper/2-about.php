@@ -13,7 +13,7 @@ if (get_field('is_example')) { ?>
 	<img src="<?php echo get_template_directory_uri(); ?>/gutenberg/whitepaper/preview/2.png">
 <?php } else { ?>
 
-	<section class="form-section">
+	<section class="form-section" id="form-whitepaper">
 		<div class="container">
 			<div class="left">
 				<?php if ($title): ?>
@@ -53,3 +53,51 @@ if (get_field('is_example')) { ?>
 	</section>
 
 <?php } ?>
+
+<script>
+	document.addEventListener('wpcf7mailsent', function(event) {
+		const formWrapper = event.target.closest('.form.join-our-team__form');
+		if (formWrapper) {
+			formWrapper.classList.add('success');
+		}
+	}, false);
+</script>
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.querySelector('.wpcf7 form');
+		const inputs = form.querySelectorAll('input');
+		const emailField = form.querySelector('input[name="your-email"]');
+		const submitBtn = form.querySelector('button[type="submit"]');
+
+		const isBusinessEmail = (email) => {
+			const personalDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'mail.ru'];
+			const domain = email.split('@')[1]?.toLowerCase();
+			return domain && !personalDomains.includes(domain);
+		};
+
+		const validateForm = () => {
+			let isValid = true;
+			inputs.forEach(input => {
+				if (input.required && !input.value.trim()) {
+					isValid = false;
+				}
+			});
+
+			if (emailField && !isBusinessEmail(emailField.value.trim())) {
+				isValid = false;
+				emailField.setCustomValidity("Please enter a valid business email address");
+			} else {
+				emailField.setCustomValidity("");
+			}
+
+			submitBtn.disabled = !isValid;
+			submitBtn.classList.toggle('disabled', !isValid);
+		};
+
+		inputs.forEach(input => {
+			input.addEventListener('input', validateForm);
+		});
+	});
+</script>

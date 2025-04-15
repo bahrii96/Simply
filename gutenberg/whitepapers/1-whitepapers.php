@@ -63,7 +63,7 @@ if (get_field('is_example')) { ?>
 	<img src="<?php echo get_template_directory_uri(); ?>/gutenberg/whitepapers/preview/1.png">
 <?php } else { ?>
 
-	<div class="b-breadcrumbs ">
+	<div class="b-breadcrumbs on-blog">
 		<div class="container">
 			<div class="breadcrumbs2">
 				<?php if (function_exists('get_nav_breadcrumb')) echo str_replace('class="breadcrumbs"', '', get_nav_breadcrumb()); ?>

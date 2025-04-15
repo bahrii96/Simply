@@ -28,16 +28,21 @@ if (get_field('is_example')) { ?>
 				<h1 class="h3"><?php echo $title; ?></h1>
 			<?php } ?>
 			<?php if ($text): ?>
-				<p><?php echo $text ?>.</p>
+				<p><?php echo $text ?></p>
 			<?php endif; ?>
 			<?php if ($knopka) :
 				$link_url = $knopka['url'];
 				$link_title = $knopka['title'];
 				$link_target = $knopka['target'] ? $knopka['target'] : '_self';
+				if (empty($link_url) || trim($link_url) === '/') {
+					$link_url = '#form-whitepaper';
+					$link_target = '_self';
+				}
 			?>
-				<a class="btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-			<?php endif;
-			?>
+				<a class="btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+					<?php echo esc_html($link_title); ?>
+				</a>
+			<?php endif; ?>
 		</div>
 		<div class="right">
 			<div class="photo">

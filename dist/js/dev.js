@@ -748,4 +748,24 @@ jQuery(document).ready(function ($) {
 });
 
 
+$('.blog-search input[name="whitepapers_search"]').keyup(function (e) {
+    let text = $(this).val();
+
+    $.ajax({
+        url: '/wp-admin/admin-ajax.php',
+        type: 'post',
+        data: { action: 'data_fetch_whitepapers', keyword: text },
+        dataType: 'html',
+        success: function (data) {
+            if (data) {
+                $('.blog-search .searching-list ul').html(data);
+            } else {
+                $('.blog-search .searching-list ul').empty();
+                $('.blog-search .searching-list').removeClass('active');
+            }
+        },
+    });
+
+  
+});
 
