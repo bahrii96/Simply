@@ -73,8 +73,4 @@ if (get_field('is_example')) { ?>
 			</div>
 		</div>
 	</div>
-
-
-
-
 <?php } ?>

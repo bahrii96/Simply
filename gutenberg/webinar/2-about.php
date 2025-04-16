@@ -44,7 +44,13 @@ if (get_field('is_example')) { ?>
 						</div>
 						<h3><?php echo $success_title ?></h3>
 						<p><?php echo $success_desc ?></p>
-						<a href="#popup-video" class="btn js-popup-btn" data-link="<?php echo $link ?>"><?php echo $title_btn ?></a>
+						<a
+							href="<?php echo $link ?>"
+							class="btn"
+							data-fancybox
+							data-type="iframe">
+							<?php echo $title_btn ?>
+						</a>
 					</div>
 				</div>
 			</div>

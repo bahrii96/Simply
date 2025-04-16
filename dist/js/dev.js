@@ -110,6 +110,9 @@ function show_modal_thanks_sub() {
 document.addEventListener(
     'wpcf7mailsent',
     function (event) {
+        if (event.detail.contactFormId == '29555' || event.detail.contactFormId == '29464') {
+            return;
+        }
         if (!$(event.srcElement).hasClass('form-in-modal') && !$(event.srcElement).hasClass('form-subscribe')) {
             show_modal_thanks();
         }
@@ -689,8 +692,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
 jQuery(document).ready(function ($) {
     $('input[name="whitepapers_search"]').on('keyup', function (e) {
         let search = $(this).val().trim();
@@ -716,7 +717,6 @@ jQuery(document).ready(function ($) {
     });
 
     function ajaxLoadWhitepapers(search = '', term = '') {
-
         $.ajax({
             url: '/wp-admin/admin-ajax.php',
             type: 'post',
@@ -725,16 +725,16 @@ jQuery(document).ready(function ($) {
                 search: search,
                 term: term,
             },
-            dataType: 'json', 
-          
+            dataType: 'json',
+
             success: function (response) {
                 if (response.success) {
-                    $('.cards').html(response.data.content); 
+                    $('.cards').html(response.data.content);
 
                     if (response.data.total_posts <= 6) {
                         $('.b-pagination').hide();
                     } else {
-                        $('.b-pagination').show(); 
+                        $('.b-pagination').show();
                     }
                 } else {
                     $('.cards').html('<div class="search-no-results text-center">Помилка завантаження.</div>');
@@ -746,7 +746,6 @@ jQuery(document).ready(function ($) {
         });
     }
 });
-
 
 $('.blog-search input[name="whitepapers_search"]').keyup(function (e) {
     let text = $(this).val();
@@ -765,7 +764,5 @@ $('.blog-search input[name="whitepapers_search"]').keyup(function (e) {
             }
         },
     });
-
-  
 });
 
